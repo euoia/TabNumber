@@ -1,0 +1,14 @@
+{
+   "background": {
+      "persistent": false,
+      "scripts": [ "tabnumber.js" ]
+   },
+   "icons": {
+      "16": "tabnum.png"
+   },
+   "manifest_version": 2,
+   "name": "Tab Number",
+   "permissions": [ "tabs", "http://*/*", "https://*/*" ],
+   "update_url": "http://clients2.google.com/service/update2/crx",
+   "version": "1"
+}
