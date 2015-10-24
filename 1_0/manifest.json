@@ -1,14 +1,20 @@
 {
-   "background": {
-      "persistent": false,
-      "scripts": [ "tabnumber.js" ]
-   },
-   "icons": {
-      "16": "tabnum.png"
-   },
-   "manifest_version": 2,
-   "name": "Tab Number",
-   "permissions": [ "tabs", "http://*/*", "https://*/*" ],
-   "update_url": "http://clients2.google.com/service/update2/crx",
-   "version": "1"
+  "manifest_version": 2,
+  "name": "Tab Number",
+  "description": "This extension shows a number in front of tabs 4 to 8, and 9 on the last tab.",
+  "version": "1.0",
+  "icons": {
+    "16": "tabnumber-16.png",
+    "48": "tabnumber-48.png",
+    "128": "tabnumber-128.png"
+  },
+  "background": {
+    "persistent": false,
+    "scripts": [ "tabnumber.js" ]
+  },
+  "permissions": [
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+  ]
 }

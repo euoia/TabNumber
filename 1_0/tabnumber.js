@@ -1,4 +1,4 @@
-var update = function(details) {
+var update = function(details, isLast) {
   var tabId = details.id;
   var tabIndex = details.index;
   var tabTitle = details.title;
@@ -10,9 +10,14 @@ var update = function(details) {
 
   var tabNumber = tabIndex + 1;
   var newTabNumber;
-  if (tabNumber > 3 && tabNumber < 10) {
+  if (tabNumber > 3 && tabNumber < 9) {
+    // Tabs between 3 and 9 get a number.
     newTabNumber = parseInt(tabIndex + 1, 10);
+  } else if (tabNumber > 8 && isLast === true) {
+    // The last tab always uses command-9.
+    newTabNumber = '9';
   } else {
+    // Other tabs don't get a number.
     newTabNumber = '';
   }
 
@@ -22,7 +27,7 @@ var update = function(details) {
     chrome.tabs.executeScript(
       tabId,
       {
-        code : "document.title = '" + newTabTitle + "';"
+        code: "document.title = '" + newTabTitle + "';"
       }
     );
   } catch(e) {}
@@ -31,8 +36,11 @@ var update = function(details) {
 
 function updateAll() {
   chrome.tabs.query({}, function(tabs) {
+    var isLast;
+
     for (var i = 0, tab; tab = tabs[i]; i++) {
-      update(tab);
+      isLast = (i === tabs.length - 1);
+      update(tab, isLast);
     }
   });
 }
@@ -46,7 +54,7 @@ chrome.tabs.onRemoved.addListener(function(id) {
 });
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-  update(tab);
+  updateAll();
 });
 
 updateAll();

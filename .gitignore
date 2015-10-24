@@ -1,0 +1,6 @@
+# Certificate files for publishing extension.
+1_0.crx
+1_0.pem
+
+# Packaged files.
+*.zip
