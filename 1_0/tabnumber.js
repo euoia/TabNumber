@@ -27,7 +27,7 @@ var update = function(details, isLast) {
     chrome.tabs.executeScript(
       tabId,
       {
-        code: "document.title = '" + newTabTitle + "';"
+        code: "document.title = `" + newTabTitle + "`;"
       }
     );
   } catch(e) {}

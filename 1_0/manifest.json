@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Tab Number",
   "description": "This extension shows a number in front of tabs 4 to 8, and 9 on the last tab.",
-  "version": "1.0",
+  "version": "1.1",
   "icons": {
     "16": "tabnumber-16.png",
     "48": "tabnumber-48.png",
